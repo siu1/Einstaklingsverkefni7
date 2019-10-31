@@ -60,7 +60,7 @@ function play() {
       break;
     }
   }
-  if(input == null)
+  if(input === null)
   {
     alert("hætt í leik");
   }
@@ -76,16 +76,18 @@ function play() {
  *    "Þú spilaðir engan leik >_<"
  */
 function getResults(){
+  var msg;
   if(games.length() == 0)
   {
-    alert("Þú spilaðir engan leik >_<");
+    msg = alert("Þú spilaðir engan leik >_<");
   }
   else
   {
     const tries = games.length();
     const averageMoves = calculateAverage();
-    alert("Þú spilaðir ${tries} leiki\nMeðalfjöldi ágiskana var ${averageMoves}");
+    msg = alert("Þú spilaðir ${tries} leiki\nMeðalfjöldi ágiskana var ${averageMoves}");
   }
+  return msg;
 }
 
 /**
