@@ -28,7 +28,7 @@ function start() {
   {
     play();
   }
-  getResults();
+  alert(getResults());
 }
 
 /**
@@ -54,7 +54,7 @@ function play() {
     let guess = parseGuess(input);
     alert(getResponse(guess,random));
     guesses++;
-    if(guess == random)
+    if(guess === random)
     {
       games.push(guesses);
       break;
@@ -77,7 +77,7 @@ function play() {
  */
 function getResults(){
   var msg;
-  if(games.length() == 0)
+  if(games.length() === 0)
   {
     msg = alert("Þú spilaðir engan leik >_<");
   }
