@@ -24,6 +24,11 @@
   */
 function start() {
   play();
+  while(confirm("Viltu spila aftur?"))
+  {
+    play();
+  }
+
 }
 
 /**
@@ -42,9 +47,22 @@ function start() {
  */
 function play() {
   const random = randomNumber(1,100);
-  while(true)
+  console.log(random);
+  let guesses = 0;
+  while(input = prompt("Giskaðu á tölu á bilinu 1-100", ''))
   {
-    
+    let guess = parseGuess(input);
+    alert(getResponse(guess,random));
+    guesses++;
+    if(guess == random)
+    {
+      games.push(guesses);
+      break;
+    }
+  }
+  if(input == null)
+  {
+    alert("hætt í leik\n" + getResults());
   }
 }
 
@@ -55,7 +73,7 @@ function play() {
  *     Meðalfjöldi ágiskana var 5"
  * ATH að meðalfjöldi kemur í nýrri línu.
  * Ef enginn leikur var spilaður er skilað:
- *    "Þú spilaðir engann leik >_<"
+ *    "Þú spilaðir engan leik >_<"
  */
 function getResults(){
   if(games.length() == 0)
@@ -123,32 +141,26 @@ function getResponse(guess, correct){
   }
   else if(guess == correct)
   {
-    console.log("Rétt");
-    return;
+    return "Rétt";
   }
   else if(Math.abs(guess - correct) < 5)
   {
-    console.log("Mjög nálægt");
-    return;
+    return "Mjög nálægt";
   }
   else if(Math.abs(guess - correct) < 10)
   {
-    console.log("Nálægt");
-    return;
+    return "Nálægt";
   }
   else if(Math.abs(guess - correct) < 20)
   {
-    console.log("Frekar langt frá");
-    return;
+    return "Frekar langt frá";
   }
   else if(Math.abs(guess - correct) < 50)
   {
-    console.log("Langt frá");
-    return;
+    return "Langt frá";
   }
   else{
-    console.log("Mjög langt frá");
-    return;
+    return "Mjög langt frá";
   }
 }
 
