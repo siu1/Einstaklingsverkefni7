@@ -28,7 +28,7 @@ function start() {
   {
     play();
   }
-  alert(getResults());
+  getResults();
 }
 
 /**
