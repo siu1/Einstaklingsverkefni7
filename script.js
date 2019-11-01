@@ -76,18 +76,16 @@ function play() {
  *    "Þú spilaðir engan leik >_<"
  */
 function getResults(){
-  var msg;
   if(games.length() === 0)
   {
-    msg = alert("Þú spilaðir engan leik >_<");
+    alert("Þú spilaðir engan leik >_<");
   }
   else
   {
     const tries = games.length();
     const averageMoves = calculateAverage();
-    msg = alert("Þú spilaðir ${tries} leiki\nMeðalfjöldi ágiskana var ${averageMoves}");
+    alert("Þú spilaðir ${tries} leiki\nMeðalfjöldi ágiskana var ${averageMoves}");
   }
-  return msg;
 }
 
 /**
